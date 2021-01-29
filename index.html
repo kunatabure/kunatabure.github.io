@@ -13,6 +13,25 @@
 </head>
 
 <body>
-  <script src="js/scripts.js"></script>
+  <script src="js/scripts.js">
+  window.TEIReader = {
+      callbacks: {
+          autoLoad: function(callback) {
+              const request = window.fetch('manyo_1.xml');
+              request.then((response) => {
+                  response.text().then((text) => {
+                      callback({
+                          content: text,
+                          identifier: 'hirose-manyo',
+                      });
+                  })
+              });
+          },
+          close: function() {
+              alert('There is nothing else to see here');
+          }
+      }
+  }
+  </script>
 </body>
 </html>
