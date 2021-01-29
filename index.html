@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>TEI Example</title>
-    <style>
-    body {
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=/favicon.ico><title>tei-reader</title><style>body {
         margin: 0;
     }
     #app {
@@ -145,12 +137,7 @@
     }
     .mark-initial-letter {
         font-size: 150%;
-    }
-    </style>
-  </head>
-  <body>
-    <script id="TEIReaderConfig" type="application/json">
-      {
+    }</style><link href=css/app.css rel=preload as=style><link href=js/app.js rel=preload as=script><link href=js/chunk-vendors.js rel=preload as=script><link href=css/app.css rel=stylesheet></head><body><noscript><strong>We're sorry but tei-reader doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><script id=TEIReaderConfig type=applicationjson>{
           "sections": {
               "body": {
                   "label": "Text",
@@ -208,14 +195,14 @@
                               "selector": "tei:head"
                           },
                           "attrs": {
-                              "navigation-id": {
+                              "id": {
                                   "parser": {
                                       "selector": "@xml:id"
                                   }
                               }
                           },
                           "navigation": {
-                              "attr": "navigation-id"
+                              "attr": "id"
                           }
                       },
                       {
@@ -306,14 +293,14 @@
                           "attrs": {
                               "target": {
                                   "parser": {
-                                      "selector": "substring(@target, 2)"
+                                      "selector": "@target"
                                   }
                               }
                           },
                           "reference": {
                               "type": "choice",
                               "attr": "target",
-                              "display": "footnote"
+                              "display": "sidebar"
                           }
                       },
                       {
@@ -472,13 +459,10 @@
           "ui": {
               "closeLabel": "Close"
           }
-      }
-    </script>
-    <script type="application/javascript">
-      window.TEIReader = {
+      }</script><script>window.TEIReader = {
           callbacks: {
               autoLoad: function(callback) {
-                  const request = window.fetch('manyo_1.xml');
+                  const request = window.fetch('text.tei');
                   request.then((response) => {
                       response.text().then((text) => {
                           callback({
@@ -492,9 +476,4 @@
                   alert('There is nothing else to see here');
               }
           }
-      }
-    </script>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
-</html>
+      }</script><div id=app></div><script src=js/chunk-vendors.js></script><script src=js/app.js></script></body></html>
